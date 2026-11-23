@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madalis - Academia de Danzas Árabes</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Great Vibes, Montserrat, Cinzel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        arabic: {
+                            dark: '#0a0a0f',
+                            card: '#12121a',
+                            silver: '#e2e8f0',
+                            accent: '#c5a059',
+                            rose: '#881337',
+                            glow: '#d4af37'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                        script: ['Great Vibes', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0a0f;
+            color: #e2e8f0;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        .font-script { font-family: 'Great Vibes', cursive; }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fef08a 0%, #d4af37 50%, #854d0e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-panel {
+            background: rgba(18, 18, 26, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0f; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c5a059; }
+    </style>
+</head>
+<body class="bg-arabic-dark text-slate-200 antialiased selection:bg-arabic-accent selection:text-black">
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-white/10 bg-arabic-dark/95 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-14 h-14 rounded-xl border border-white/10 bg-black flex items-center justify-center p-1 shadow-md overflow-hidden shrink-0">
+                        <img src="1000020540.jpg" alt="Madalis Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.parentElement.innerHTML='<svg viewBox=\'0 0 500 500\' class=\'w-full h-full\'><defs><linearGradient id=\'navSilver\' x1=\'0%\' y1=\'0%\' x2=\'100%\' y2=\'100%\'><stop offset=\'0%\' stop-color=\'#ffffff\'/><stop offset=\'100%\' stop-color=\'#cbd5e1\'/></linearGradient><path id=\'textArcNavExact\' d=\'M 120 115 A 180 180 0 0 1 380 115\' /></defs><rect width=\'500\' height=\'500\' fill=\'#000000\' /><text fill=\'url(#navSilver)\' font-family=\'Great Vibes, cursive\' font-size=\'75\' font-weight=\'bold\'><textPath href=\'#textArcNavExact\' startOffset=\'50%\' text-anchor=\'middle\'>Madalis</textPath></text><path d=\'M 280 145 C 135 145 75 240 75 350 C 75 440 160 485 320 485 C 170 465 125 385 125 330 C 125 245 205 165 280 145 Z\' fill=\'url(#navSilver)\' /><g transform=\'translate(265, 325)\'><circle cx=\'0\' cy=\'0\' r=\'28\' fill=\'url(#navSilver)\' /><circle cx=\'0\' cy=\'0\' r=\'21\' fill=\'#ffffff\' /></g></svg>';">
+                    </div>
+                    <div>
+                        <span class="font-script text-2xl leading-none text-slate-100 block tracking-wide">Madalis</span>
+                        <span class="text-[9px] tracking-[0.25em] text-arabic-accent uppercase block font-semibold">Danzas Árabes</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden lg:flex items-center space-x-6 text-xs font-medium tracking-wider uppercase text-slate-300">
+                    <a href="#horarios" class="hover:text-arabic-accent transition-colors">Horarios</a>
+                    <a href="#shows" class="hover:text-arabic-accent transition-colors">Arma tu Show</a>
+                    <a href="#particulares" class="hover:text-arabic-accent transition-colors">Clases Particulares</a>
+                    <a href="#trajes" class="hover:text-arabic-accent transition-colors">Trajes</a>
+                    <a href="#elementos" class="hover:text-arabic-accent transition-colors">Elementos</a>
+                    <a href="#reservas" class="hover:text-arabic-accent transition-colors text-amber-400 font-bold">Inscribirse / Pagos</a>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="hidden sm:flex items-center space-x-3">
+                    <button onclick="openPaymentModal('Inscripción General')" class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider border border-arabic-accent text-arabic-accent hover:bg-arabic-accent hover:text-black transition-all">
+                        <i class="fas fa-university mr-1"></i> Cuenta RUT
+                    </button>
+                    <a href="https://wa.me/56984944087?text=Hola%20Madalis,%20quisiera%20recibir%20informaci%C3%B3n%20sobre%20las%20clases%20y%20agendar%20mi%20cupo." 
+                       target="_blank"
+                       class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-arabic-accent via-amber-400 to-amber-600 text-black hover:opacity-90 transition-all transform hover:scale-105 shadow-lg shadow-arabic-accent/20 flex items-center space-x-2">
+                        <i class="fab fa-whatsapp text-sm"></i>
+                        <span>Contactar</span>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-slate-300 hover:text-white focus:outline-none p-2">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile dropdown menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-arabic-card border-b border-white/10 px-4 pt-4 pb-6 space-y-3">
+            <a href="#horarios" class="mobile-link block py-2 text-slate-300 hover:text-arabic-accent border-b border-white/5">Horarios & Sedes</a>
+            <a href="#shows" class="mobile-link block py-2 text-slate-300 hover:text-arabic-accent border-b border-white/5">Arma tu Show</a>
+            <a href="#particulares" class="mobile-link block py-2 text-slate-300 hover:text-arabic-accent border-b border-white/5">Clases Particulares & Novias</a>
+            <a href="#trajes" class="mobile-link block py-2 text-slate-300 hover:text-arabic-accent border-b border-white/5">Venta y Arriendo de Trajes</a>
+            <a href="#elementos" class="mobile-link block py-2 text-slate-300 hover:text-arabic-accent border-b border-white/5">Venta y Arriendo de Elementos</a>
+            <a href="#reservas" class="mobile-link block py-2 text-amber-400 font-bold border-b border-white/5">Inscribirse / Agendar Clases</a>
+            <div class="pt-2 space-y-2">
+                <button onclick="openPaymentModal('Inscripción Mobile')" class="w-full text-center block px-4 py-2.5 rounded-full text-xs font-bold uppercase border border-arabic-accent text-arabic-accent">
+                    <i class="fas fa-university mr-2"></i>Ver Datos Cuenta RUT
+                </button>
+                <a href="https://wa.me/56984944087?text=Hola%20Madalis,%20quisiera%20recibir%20informaci%C3%B3n%20sobre%20las%20clases." 
+                   target="_blank"
+                   class="w-full text-center block px-5 py-3 rounded-full text-xs font-bold uppercase tracking-widest bg-arabic-accent text-black">
+                    <i class="fab fa-whatsapp mr-2"></i>Escribir por WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-gradient-to-b from-slate-900/80 via-black to-arabic-dark">
+            <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-4">
+            
+            <!-- Main Hero Logo Vector -->
+            <div class="w-80 h-80 sm:w-[440px] sm:h-[440px] mx-auto mb-6 rounded-3xl border border-white/10 bg-black flex items-center justify-center p-4 shadow-2xl shadow-white/5 overflow-hidden">
+                <svg viewBox="0 0 500 500" class="w-full h-full drop-shadow-[0_0_20px_rgba(255,255,255,0.25)]">
+                    <defs>
+                        <!-- Silver Metallic Gradient matching exact brightness profile -->
+                        <linearGradient id="silverGradExact" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff"/>
+                            <stop offset="20%" stop-color="#f8fafc"/>
+                            <stop offset="50%" stop-color="#cbd5e1"/>
+                            <stop offset="80%" stop-color="#94a3b8"/>
+                            <stop offset="100%" stop-color="#e2e8f0"/>
+                        </linearGradient>
+
+                        <!-- Arc Path for Curved Text 'Madalis' -->
+                        <path id="textArcExact" d="M 120 120 A 175 175 0 0 1 380 120" />
+                    </defs>
+
+                    <!-- Background Base -->
+                    <rect width="500" height="500" fill="#000000" />
+
+                    <!-- Curved Text "Madalis" -->
+                    <text fill="url(#silverGradExact)" font-family="Great Vibes, cursive" font-size="88" font-weight="bold" letter-spacing="1">
+                        <textPath href="#textArcExact" startOffset="50%" text-anchor="middle">Madalis</textPath>
+                    </text>
+
+                    <!-- Crescent Moon Shape with Internal Floral Cuts -->
+                    <g fill="url(#silverGradExact)">
+                        <!-- Main Crescent Silhouette -->
+                        <path d="M 290 148 C 140 148 70 240 70 350 C 70 445 155 490 325 490 C 165 470 115 385 115 330 C 115 240 200 162 290 148 Z" />
+
+                        <!-- Cutouts on Moon Body (Black Negative Spaces forming Flowers & Arabesque Leaves) -->
+                        <g fill="#000000">
+                            <!-- Lower Flower Cluster (Center Dot + 6 Petals) -->
+                            <circle cx="132" cy="340" r="5.5"/>
+                            <circle cx="121" cy="331" r="3"/>
+                            <circle cx="143" cy="349" r="3"/>
+                            <circle cx="121" cy="349" r="3"/>
+                            <circle cx="143" cy="331" r="3"/>
+                            <circle cx="132" cy="324" r="3"/>
+                            <circle cx="132" cy="356" r="3"/>
+
+                            <!-- Arabesque Vines & Swirls Above Flower -->
+                            <path d="M 108 288 Q 136 303 114 320 Q 96 303 108 288 Z" />
+                            <path d="M 120 248 Q 150 263 125 283 Q 100 263 120 248 Z" />
+                            <path d="M 142 208 Q 174 225 154 248 Q 124 230 142 208 Z" />
+                            <path d="M 172 172 Q 204 188 184 212 Q 154 192 172 172 Z" />
+
+                            <!-- Arabesque Vines & Swirls Below Flower -->
+                            <path d="M 120 375 Q 150 390 125 410 Q 100 390 120 375 Z" />
+                            <path d="M 140 420 Q 170 433 145 456 Q 120 438 140 420 Z" />
+                            <path d="M 172 458 Q 202 468 182 488 Q 152 473 172 458 Z" />
+                        </g>
+                    </g>
+
+                    <!-- Central Sun Burst & 4-Point Flares -->
+                    <g transform="translate(265, 325)">
+                        <!-- Outer Cross Flares with Diamonds (Horizontal & Vertical Lines) -->
+                        <line x1="-110" y1="0" x2="110" y2="0" stroke="url(#silverGradExact)" stroke-width="3" stroke-linecap="round"/>
+                        <line x1="0" y1="-110" x2="0" y2="110" stroke="url(#silverGradExact)" stroke-width="3" stroke-linecap="round"/>
+
+                        <!-- Accent Diamonds along Cross Lines -->
+                        <polygon points="-70,0 -60,-5 -50,0 -60,5" fill="url(#silverGradExact)"/>
+                        <polygon points="70,0 60,-5 50,0 60,5" fill="url(#silverGradExact)"/>
+                        <polygon points="0,-70 -5,-60 0,-50 5,-60" fill="url(#silverGradExact)"/>
+                        <polygon points="0,70 -5,60 0,50 5,60" fill="url(#silverGradExact)"/>
+
+                        <!-- Sun Triangular Spikes / Rays -->
+                        <g fill="url(#silverGradExact)">
+                            <!-- Main Cardinal Spikes -->
+                            <polygon points="0,-46 -7,-22 7,-22" />
+                            <polygon points="0,46 -7,22 7,22" />
+                            <polygon points="-46,0 -22,-7 -22,7" />
+                            <polygon points="46,0 22,-7 22,7" />
+
+                            <!-- Diagonal Major Spikes -->
+                            <polygon points="-32,-32 -22,-10 -10,-22" />
+                            <polygon points="32,-32 22,-10 10,-22" />
+                            <polygon points="-32,32 -22,10 -10,22" />
+                            <polygon points="32,32 22,10 10,22" />
+
+                            <!-- Diagonal Intermediate Small Spikes -->
+                            <polygon points="-16,-40 -12,-19 -2,-23" />
+                            <polygon points="16,-40 12,-19 2,-23" />
+                            <polygon points="-16,40 -12,19 -2,23" />
+                            <polygon points="16,40 12,19 2,23" />
+                        </g>
+
+                        <!-- Outer Sun Disc -->
+                        <circle cx="0" cy="0" r="28" fill="url(#silverGradExact)" />
+                        <!-- Inner Glowing White Core -->
+            <!-- Main Hero Logo -->
+            <div class="w-80 h-80 sm:w-[440px] sm:h-[440px] mx-auto mb-6 rounded-3xl border border-white/10 bg-black flex items-center justify-center p-4 shadow-2xl shadow-white/5 overflow-hidden">
+                <img src="1000020540.jpg" alt="Madalis Logo Principal" class="w-full h-full object-contain" onerror="this.onerror=null; this.parentElement.innerHTML='<svg viewBox=\'0 0 500 500\' class=\'w-full h-full\'><defs><linearGradient id=\'silverGradExact\' x1=\'0%\' y1=\'0%\' x2=\'100%\' y2=\'100%\'><stop offset=\'0%\' stop-color=\'#ffffff\'/><stop offset=\'100%\' stop-color=\'#cbd5e1\'/></linearGradient><path id=\'textArcExact\' d=\'M 120 120 A 175 175 0 0 1 380 120\' /></defs><rect width=\'500\' height=\'500\' fill=\'#000000\' /><text fill=\'url(#silverGradExact)\' font-family=\'Great Vibes, cursive\' font-size=\'88\' font-weight=\'bold\'><textPath href=\'#textArcExact\' startOffset=\'50%\' text-anchor=\'middle\'>Madalis</textPath></text><path d=\'M 290 148 C 140 148 70 240 70 350 C 70 445 155 490 325 490 C 165 470 115 385 115 330 C 115 240 200 162 290 148 Z\' fill=\'url(#silverGradExact)\'/><g transform=\'translate(265, 325)\'><circle cx=\'0\' cy=\'0\' r=\'28\' fill=\'url(#silverGradExact)\' /><circle cx=\'0\' cy=\ me=\'0\' r=\'21\' fill=\'#ffffff\' /></g></svg>';">
+            </div>
+
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-arabic-accent/10 border border-arabic-accent/30 text-arabic-accent text-xs font-semibold uppercase tracking-widest mb-6">
+                <i class="fas fa-star text-[10px]"></i>
+                <span>Academia Profesional de Danza Oriental</span>
+            </div>
+            
+            <h1 class="font-cinzel text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-2">
+                MADALIS
+            </h1>
+            <p class="font-script text-3xl sm:text-4xl gold-gradient-text mb-6">Danzas Árabes</p>
+            
+            <p class="max-w-2xl mx-auto text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+                Un espacio dedicado a conectar con tu femineidad, fuerza y elegancia a través de la técnica, la música y la pasión oriental. Para todas las edades y niveles.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#reservas" class="w-full sm:w-auto px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest bg-gradient-to-r from-arabic-accent via-amber-400 to-amber-600 text-black hover:shadow-lg hover:shadow-arabic-accent/25 transition-all text-center">
+                    Agendar / Inscribirse AHORA
+                </a>
+                <a href="#horarios" class="w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-xs uppercase tracking-widest border border-slate-600 hover:border-arabic-accent text-slate-200 hover:text-white transition-all text-center glass-panel">
+                    Ver Horarios y Sedes
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HORARIOS SECTION -->
+    <section id="horarios" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-arabic-accent text-xs font-bold uppercase tracking-widest">Horarios & Sedes</span>
+                <h2 class="text-3xl sm:text-4xl font-cinzel font-bold text-white mt-2">Nuestras Clases Presenciales</h2>
+                <p class="text-slate-400 text-xs sm:text-sm mt-2">Elige la sede y el horario que mejor se adapte a ti e inscríbete de manera directa.</p>
+            </div>
+
+            <!-- Schedule Cards Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="schedule-grid">
+                
+                <!-- Item 1 -->
+                <div class="sched-card glass-panel p-6 rounded-2xl border border-white/10 relative">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs font-bold text-arabic-accent uppercase tracking-wider"><i class="far fa-calendar-alt mr-1"></i> Lunes</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-blue-500/20 text-blue-300">Básico</span>
+                    </div>
+                    <h4 class="font-cinzel text-lg font-bold text-white mb-1">18:40 a 20:40 hrs</h4>
+                    <p class="text-xs text-slate-400 mb-4"><i class="fas fa-map-marker-alt text-arabic-accent mr-1"></i> Corporación Cultural Carmen 560</p>
+                    <button onclick="selectClassForBooking('Lunes Básico (18:40 hrs) - Carmen 560')" class="w-full text-center block py-2 rounded-xl bg-arabic-accent text-black hover:bg-amber-400 transition-all text-xs font-bold">
+                        Agendar e Inscribirse
+                    </button>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="sched-card glass-panel p-6 rounded-2xl border border-white/10 relative">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs font-bold text-arabic-accent uppercase tracking-wider"><i class="far fa-calendar-alt mr-1"></i> Miércoles</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-blue-500/20 text-blue-300">Básico</span>
+                    </div>
+                    <h4 class="font-cinzel text-lg font-bold text-white mb-1">18:40 a 20:40 hrs</h4>
+                    <p class="text-xs text-slate-400 mb-4"><i class="fas fa-map-marker-alt text-arabic-accent mr-1"></i> Corporación Cultural Carmen 560</p>
+                    <button onclick="selectClassForBooking('Miércoles Básico (18:40 hrs) - Carmen 560')" class="w-full text-center block py-2 rounded-xl bg-arabic-accent text-black hover:bg-amber-400 transition-all text-xs font-bold">
+                        Agendar e Inscribirse
+                    </button>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="sched-card glass-panel p-6 rounded-2xl border border-white/10 relative">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs font-bold text-arabic-accent uppercase tracking-wider"><i class="far fa-calendar-alt mr-1"></i> Jueves</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">Iniciación</span>
+                    </div>
+                    <h4 class="font-cinzel text-lg font-bold text-white mb-1">19:00 a 20:40 hrs</h4>
+                    <p class="text-xs text-slate-400 mb-4"><i class="fas fa-map-marker-alt text-arabic-accent mr-1"></i> Manso de Velasco #744</p>
+                    <button onclick="selectClassForBooking('Jueves Iniciación (19:00 hrs) - Manso de Velasco')" class="w-full text-center block py-2 rounded-xl bg-arabic-accent text-black hover:bg-amber-400 transition-all text-xs font-bold">
+                        Agendar e Inscribirse
+                    </button>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="sched-card glass-panel p-6 rounded-2xl border border-white/10 relative">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs font-bold text-arabic-accent uppercase tracking-wider"><i class="far fa-calendar-alt mr-1"></i> Lunes (Mañana)</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">Iniciación</span>
+                    </div>
+                    <h4 class="font-cinzel text-lg font-bold text-white mb-1">11:00 a 12:50 hrs</h4>
+                    <p class="text-xs text-slate-400 mb-4"><i class="fas fa-map-marker-alt text-arabic-accent mr-1"></i> Rucatremu s/n</p>
+                    <button onclick="selectClassForBooking('Lunes Mañana Iniciación (11:00 hrs) - Rucatremu')" class="w-full text-center block py-2 rounded-xl bg-arabic-accent text-black hover:bg-amber-400 transition-all text-xs font-bold">
+                        Agendar e Inscribirse
+                    </button>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="sched-card glass-panel p-6 rounded-2xl border border-white/10 relative">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs font-bold text-arabic-accent uppercase tracking-wider"><i class="far fa-calendar-alt mr-1"></i> Martes (Mañana)</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">Iniciación</span>
+                    </div>
+                    <h4 class="font-cinzel text-lg font-bold text-white mb-1">11:00 a 12:50 hrs</h4>
+                    <p class="text-xs text-slate-400 mb-4"><i class="fas fa-map-marker-alt text-arabic-accent mr-1"></i> Manso de Velasco #744</p>
+                    <button onclick="selectClassForBooking('Martes Mañana Iniciación (11:00 hrs) - Manso de Velasco')" class="w-full text-center block py-2 rounded-xl bg-arabic-accent text-black hover:bg-amber-400 transition-all text-xs font-bold">
+                        Agendar e Inscribirse
+                    </button>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="sched-card glass-panel p-6 rounded-2xl border border-white/10 relative">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs font-bold text-arabic-accent uppercase tracking-wider"><i class="far fa-calendar-alt mr-1"></i> Sábado</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-pink-500/20 text-pink-300">Infantil & Juvenil</span>
+                    </div>
+                    <h4 class="font-cinzel text-lg font-bold text-white mb-1">11:00 a 13:00 hrs</h4>
+                    <p class="text-xs text-slate-400 mb-4"><i class="fas fa-map-marker-alt text-arabic-accent mr-1"></i> Carmen #560</p>
+                    <button onclick="selectClassForBooking('Sábado Infantil/Juvenil (11:00 hrs) - Carmen 560')" class="w-full text-center block py-2 rounded-xl bg-arabic-accent text-black hover:bg-amber-400 transition-all text-xs font-bold">
+                        Agendar e Inscribirse
+                    </button>
+                </div>
+
+                <!-- Item 7 -->
+                <div class="sched-card glass-panel p-6 rounded-2xl border border-white/10 relative">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs font-bold text-arabic-accent uppercase tracking-wider"><i class="far fa-calendar-alt mr-1"></i> Sábado</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">Iniciación</span>
+                    </div>
+                    <h4 class="font-cinzel text-lg font-bold text-white mb-1">15:20 a 17:40 hrs</h4>
+                    <p class="text-xs text-slate-400 mb-4"><i class="fas fa-map-marker-alt text-arabic-accent mr-1"></i> Carmen #560</p>
+                    <button onclick="selectClassForBooking('Sábado Iniciación (15:20 hrs) - Carmen 560')" class="w-full text-center block py-2 rounded-xl bg-arabic-accent text-black hover:bg-amber-400 transition-all text-xs font-bold">
+                        Agendar e Inscribirse
+                    </button>
+                </div>
+
+                <!-- Item 8 -->
+                <div class="sched-card glass-panel p-6 rounded-2xl border border-white/10 relative">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs font-bold text-arabic-accent uppercase tracking-wider"><i class="far fa-calendar-alt mr-1"></i> Sábado</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">Avanzado</span>
+                    </div>
+                    <h4 class="font-cinzel text-lg font-bold text-white mb-1">13:20 a 15:00 hrs</h4>
+                    <p class="text-xs text-slate-400 mb-4"><i class="fas fa-map-marker-alt text-arabic-accent mr-1"></i> Carmen #560</p>
+                    <button onclick="selectClassForBooking('Sábado Avanzado (13:20 hrs) - Carmen 560')" class="w-full text-center block py-2 rounded-xl bg-arabic-accent text-black hover:bg-amber-400 transition-all text-xs font-bold">
+                        Agendar e Inscribirse
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CLASES PARTICULARES Y ESPECIALES SECTION -->
+    <section id="particulares" class="py-24 relative bg-black/60 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-arabic-accent text-xs font-bold uppercase tracking-widest"><i class="fas fa-gem mr-1"></i> Formación Exclusiva</span>
+                <h2 class="text-3xl sm:text-5xl font-cinzel font-bold text-white mt-2">Clases Particulares & Especiales</h2>
+                <p class="text-slate-300 text-xs sm:text-sm mt-3">
+                    Coreografías únicas, exclusivas e irrepetibles creadas a tu medida para momentos inolvidables o preparación de alto rendimiento.
+                </p>
+            </div>
+
+            <!-- Modalidades Cards -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="glass-panel p-6 rounded-2xl border border-arabic-accent/30 hover:border-arabic-accent transition-all">
+                    <div class="w-12 h-12 rounded-full bg-arabic-accent/20 border border-arabic-accent flex items-center justify-center text-arabic-accent mb-4">
+                        <i class="fas fa-heart text-xl"></i>
+                    </div>
+                    <h3 class="font-cinzel text-lg font-bold text-white mb-2">Para Novias</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Con o sin damas de honor. Crearemos una coreografía única, exclusiva e irrepetible adaptada a tus gustos y canción para deslumbrar en tu boda.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl border border-arabic-accent/30 hover:border-arabic-accent transition-all">
+                    <div class="w-12 h-12 rounded-full bg-arabic-accent/20 border border-arabic-accent flex items-center justify-center text-arabic-accent mb-4">
+                        <i class="fas fa-gift text-xl"></i>
+                    </div>
+                    <h3 class="font-cinzel text-lg font-bold text-white mb-2">Sorpresa a tu Pareja</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Prepara una presentación cautivadora e íntima con un baile personalizado diseñado exclusivamente para impresionar a tu pareja.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl border border-arabic-accent/30 hover:border-arabic-accent transition-all">
+                    <div class="w-12 h-12 rounded-full bg-arabic-accent/20 border border-arabic-accent flex items-center justify-center text-arabic-accent mb-4">
+                        <i class="fas fa-trophy text-xl"></i>
+                    </div>
+                    <h3 class="font-cinzel text-lg font-bold text-white mb-2">Competencias</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Preparación técnica y montaje coreográfico para certámenes, intercolegiales, campeonatos locales o internacionales.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl border border-arabic-accent/30 hover:border-arabic-accent transition-all">
+                    <div class="w-12 h-12 rounded-full bg-arabic-accent/20 border border-arabic-accent flex items-center justify-center text-arabic-accent mb-4">
+                        <i class="fas fa-user-graduate text-xl"></i>
+                    </div>
+                    <h3 class="font-cinzel text-lg font-bold text-white mb-2">Aprendizaje Personalizado</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Clases individuales enfocadas 100% en tu ritmo, perfeccionamiento de técnica, uso de elementos o acondicionamiento.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Ficha de Solicitud de Clase Especial -->
+            <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-arabic-accent/40 max-w-4xl mx-auto">
+                <h3 class="font-cinzel text-2xl font-bold text-white mb-2 text-center">Ficha de Solicitud de Clase Especial</h3>
+                <p class="text-xs text-slate-400 text-center mb-8">Completa los datos y diseñaremos una propuesta a tu medida.</p>
+
+                <form id="particular-class-form" onsubmit="handleParticularForm(event)" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Nombre Completo *</label>
+                            <input type="text" id="part-name" required placeholder="Ej: Valentina Silva" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Teléfono de Contacto *</label>
+                            <input type="tel" id="part-phone" required placeholder="+56 9 1234 5678" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Motivo de la Clase Especial *</label>
+                            <select id="part-motive" required class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                                <option value="Novia (con o sin damas de honor)">Novia (con o sin damas de honor)</option>
+                                <option value="Sorpresa para Pareja">Sorpresa para Pareja</option>
+                                <option value="Competencia de Colegio / Campeonato">Competencia (Colegio / Campeonato)</option>
+                                <option value="Clase Particular Individual de Aprendizaje">Clase Particular de Aprendizaje</option>
+                                <option value="Otra Ocasión Especial">Otra Ocasión Especial</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">¿Para qué evento u ocasión? *</label>
+                            <input type="text" id="part-event" required placeholder="Ej: Boda / Aniversario / Torneo" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Cantidad de Personas *</label>
+                            <input type="number" id="part-people" min="1" value="1" required class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">¿Requiere Coreografía? *</label>
+                            <select id="part-choreo" required class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                                <option value="Sí, coreografía única y exclusiva">Sí, coreografía única y exclusiva</option>
+                                <option value="No, solo clase técnica">No, solo clase técnica</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Fecha Estimada del Evento *</label>
+                            <input type="date" id="part-date" required class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">¿Con o Sin Elementos? *</label>
+                            <select id="part-props" required class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                                <option value="Con Elementos (Velo, Abanicos, Alas, etc.)">Con Elementos</option>
+                                <option value="Sin Elementos">Sin Elementos</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">¿Traje Arrendado o Comprado? *</label>
+                            <select id="part-outfit" required class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                                <option value="Arriendo de Traje">Arriendo de Traje</option>
+                                <option value="Compra de Traje">Compra de Traje</option>
+                                <option value="Traje Propio / No requiere">Traje Propio / No requiere</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Presupuesto Estimado ($) *</label>
+                            <input type="text" id="part-budget" required placeholder="Ej: $50.000 - $120.000" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                    </div>
+
+                    <div class="text-center pt-4">
+                        <button type="submit" class="w-full sm:w-auto px-10 py-4 rounded-full font-bold text-xs uppercase tracking-widest bg-arabic-accent text-black hover:bg-amber-400 transition-all shadow-lg">
+                            <i class="fab fa-whatsapp text-sm mr-2"></i> Solicitar Clase Particular por WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARMA TU SHOW SECTION -->
+    <section id="shows" class="py-24 relative bg-arabic-dark border-t border-arabic-accent/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-arabic-accent text-xs font-bold uppercase tracking-widest"><i class="fas fa-magic mr-1"></i> Espectáculos Personalizados</span>
+                <h2 class="text-3xl sm:text-5xl font-cinzel font-bold text-white mt-2">Arma tu Show Oriental</h2>
+                <p class="text-slate-300 text-xs sm:text-sm mt-3">
+                    Diseñamos espectáculos mágicos e inolvidables adaptados a tu evento. Desde 1 hasta 12 bailarinas en escena con variados elementos y dinámicas exclusivas.
+                </p>
+            </div>
+
+            <!-- Features Highlights -->
+            <div class="grid md:grid-cols-3 gap-6 mb-16">
+                <div class="glass-panel p-6 rounded-2xl border border-white/10 text-center">
+                    <div class="w-14 h-14 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-arabic-accent mx-auto mb-4 text-2xl">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4 class="font-cinzel text-base font-bold text-white mb-2">Desde 1 a 12 Bailarinas</h4>
+                    <p class="text-xs text-slate-400">Puesta en escena flexible: solista para celebraciones íntimas o el elenco completo de 12 bailarinas profesionales para grandes eventos.</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl border border-white/10 text-center">
+                    <div class="w-14 h-14 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-arabic-accent mx-auto mb-4 text-2xl">
+                        <i class="fas fa-fan"></i>
+                    </div>
+                    <h4 class="font-cinzel text-base font-bold text-white mb-2">Con o Sin Elementos</h4>
+                    <p class="text-xs text-slate-400">Abanicos de seda, alas de Isis, velos, sables, candelabros y cambio de vestuario durante el espectáculo.</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl border border-white/10 text-center">
+                    <div class="w-14 h-14 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-arabic-accent mx-auto mb-4 text-2xl">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <h4 class="font-cinzel text-base font-bold text-white mb-2">Interacción & Animación</h4>
+                    <p class="text-xs text-slate-400">Animación del público, integración de invitados, concursos interactivos y momento festivo derbake.</p>
+                </div>
+            </div>
+
+            <!-- Formulario Cotización de Show -->
+            <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-arabic-accent/30 max-w-4xl mx-auto">
+                <h3 class="font-cinzel text-2xl font-bold text-white mb-2 text-center">Cotiza tu Espectáculo</h3>
+                <p class="text-xs text-slate-400 text-center mb-8">Cuéntanos sobre tu evento y armaremos una propuesta personalizada según tus necesidades y presupuesto.</p>
+
+                <form id="show-booking-form" onsubmit="handleShowBooking(event)" class="space-y-6">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Nombre Completo *</label>
+                            <input type="text" id="show-name" required placeholder="Ej: Camila Morales" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Teléfono WhatsApp *</label>
+                            <input type="tel" id="show-phone" required placeholder="+56 9 1234 5678" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Correo Electrónico *</label>
+                            <input type="email" id="show-email" required placeholder="correo@ejemplo.com" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Tipo de Evento *</label>
+                            <input type="text" id="show-event-type" required placeholder="Ej: Matrimonio / Cumpleaños / Empresa" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Lugar / Ciudad *</label>
+                            <input type="text" id="show-location" required placeholder="Ej: Santiago / Rancagua" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Tipo de Espacio *</label>
+                            <select id="show-space" required class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                                <option value="Techado / Salón de Eventos">Techado / Salón de Eventos</option>
+                                <option value="Abierto / Jardín / Aire Libre">Abierto / Jardín / Aire Libre</option>
+                                <option value="Mixto">Mixto</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Fecha del Evento *</label>
+                            <input type="date" id="show-date" required class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">N° de Bailarinas Deseadas *</label>
+                            <select id="show-dancers" required class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                                <option value="1 Bailarina (Solista)">1 Bailarina (Solista)</option>
+                                <option value="2 a 4 Bailarinas">2 a 4 Bailarinas</option>
+                                <option value="5 a 8 Bailarinas">5 a 8 Bailarinas</option>
+                                <option value="9 a 12 Bailarinas (Elenco Completo)">9 a 12 Bailarinas (Elenco Completo)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Presupuesto Estimado ($) *</label>
+                            <input type="text" id="show-budget" required placeholder="Ej: $150.000 - $350.000" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-2">¿Qué buscas o qué esperas del show? (Detalles, concursos, interacción) *</label>
+                        <textarea id="show-expectations" rows="3" required placeholder="Ej: Queremos cambio de vestuario, que haya interacción con los novios y un momento festivo de baile con el público..." class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none"></textarea>
+                    </div>
+
+                    <div class="text-center pt-4">
+                        <button type="submit" class="w-full sm:w-auto px-10 py-4 rounded-full font-bold text-xs uppercase tracking-widest bg-gradient-to-r from-arabic-accent via-amber-400 to-amber-600 text-black hover:scale-105 transition-all shadow-lg">
+                            <i class="fab fa-whatsapp text-sm mr-2"></i> Enviar Cotización de Show por WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAJES SECTION (VENTA Y ARRIENDO) -->
+    <section id="trajes" class="py-24 relative bg-black/70 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-arabic-accent text-xs font-bold uppercase tracking-widest"><i class="fas fa-vest mr-1"></i> Catálogo Exclusivo</span>
+                <h2 class="text-3xl sm:text-5xl font-cinzel font-bold text-white mt-2">Venta & Arriendo de Trajes</h2>
+                <p class="text-slate-300 text-xs sm:text-sm mt-3">
+                    Bordados a mano, telas profesionales y diseños de alta costura oriental. Disponibles para venta o arriendo previa garantía.
+                </p>
+            </div>
+
+            <!-- Trajes Grid Sample -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 group">
+                    <div class="h-64 bg-slate-900 relative flex items-center justify-center p-4">
+                        <div class="text-center">
+                            <i class="fas fa-tshirt text-5xl text-arabic-accent mb-2"></i>
+                            <span class="block font-cinzel font-bold text-white">Traje Profesional Dorado & Cristal</span>
+                            <span class="text-[10px] text-slate-400">Talla S/M • Incluye Cinturón y Top</span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-xs px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 font-bold">Arriendo & Venta</span>
+                            <span class="text-xs text-arabic-accent font-semibold">* Requiere Garantía</span>
+                        </div>
+                        <button onclick="scrollToOutfitForm('Traje Profesional Dorado & Cristal')" class="w-full py-2.5 rounded-xl bg-arabic-accent text-black text-xs font-bold hover:bg-amber-400 transition-all">
+                            Solicitar Ficha de Arriendo / Venta
+                        </button>
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 group">
+                    <div class="h-64 bg-slate-900 relative flex items-center justify-center p-4">
+                        <div class="text-center">
+                            <i class="fas fa-tshirt text-5xl text-rose-500 mb-2"></i>
+                            <span class="block font-cinzel font-bold text-white">Conjunto Gala Rojo Imperial</span>
+                            <span class="text-[10px] text-slate-400">Talla M/L • Falda Abrillantada + Top</span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-xs px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 font-bold">Arriendo & Venta</span>
+                            <span class="text-xs text-arabic-accent font-semibold">* Requiere Garantía</span>
+                        </div>
+                        <button onclick="scrollToOutfitForm('Conjunto Gala Rojo Imperial')" class="w-full py-2.5 rounded-xl bg-arabic-accent text-black text-xs font-bold hover:bg-amber-400 transition-all">
+                            Solicitar Ficha de Arriendo / Venta
+                        </button>
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 group">
+                    <div class="h-64 bg-slate-900 relative flex items-center justify-center p-4">
+                        <div class="text-center">
+                            <i class="fas fa-tshirt text-5xl text-blue-400 mb-2"></i>
+                            <span class="block font-cinzel font-bold text-white">Traje Baladi Azul Noche</span>
+                            <span class="text-[10px] text-slate-400">Talla Única Adaptable</span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-xs px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 font-bold">Arriendo & Venta</span>
+                            <span class="text-xs text-arabic-accent font-semibold">* Requiere Garantía</span>
+                        </div>
+                        <button onclick="scrollToOutfitForm('Traje Baladi Azul Noche')" class="w-full py-2.5 rounded-xl bg-arabic-accent text-black text-xs font-bold hover:bg-amber-400 transition-all">
+                            Solicitar Ficha de Arriendo / Venta
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ficha de Solicitud de Traje -->
+            <div id="outfit-form-container" class="glass-panel p-8 sm:p-10 rounded-3xl border border-arabic-accent/30 max-w-3xl mx-auto">
+                <div class="text-center mb-6">
+                    <h3 class="font-cinzel text-2xl font-bold text-white">Ficha de Arriendo / Venta de Traje</h3>
+                    <p class="text-xs text-slate-400 mt-1">Completa tus datos personales para consultar disponibilidad y coordinar la garantía de devolución en caso de arriendo.</p>
+                </div>
+
+                <form id="outfit-form" onsubmit="handleOutfitForm(event)" class="space-y-5">
+                    <div class="grid md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Nombre Completo *</label>
+                            <input type="text" id="out-name" required placeholder="Ej: Patricia Reyes" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">RUT *</label>
+                            <input type="text" id="out-rut" required placeholder="12.345.678-K" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Dirección Completa *</label>
+                            <input type="text" id="out-address" required placeholder="Av. Principal #123, Depto 45" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Ciudad *</label>
+                            <input type="text" id="out-city" required placeholder="Santiago, Curicó, etc." class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Teléfono de Contacto *</label>
+                            <input type="tel" id="out-phone" required placeholder="+56 9 1234 5678" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Modalidad Deseada *</label>
+                            <select id="out-mode" required class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                                <option value="Arriendo (Requiere Garantía)">Arriendo (Requiere Garantía)</option>
+                                <option value="Venta Definitiva">Venta Definitiva</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-2">Traje o Especificaciones de Interés *</label>
+                        <input type="text" id="out-item" required placeholder="Ej: Traje Profesional Dorado / Talla M" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-[11px] text-amber-200">
+                        <i class="fas fa-info-circle mr-1 text-arabic-accent"></i> 
+                        <strong>Política de Arriendo:</strong> En modalidad de arriendo se debe dejar una garantía previamente acordada, la cual se devuelve en su totalidad al momento de retornar el traje en las mismas condiciones.
+                    </div>
+
+                    <div class="text-center pt-2">
+                        <button type="submit" class="w-full sm:w-auto px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-widest bg-arabic-accent text-black hover:bg-amber-400 transition-all">
+                            <i class="fab fa-whatsapp text-sm mr-2"></i> Enviar Ficha por WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ELEMENTOS SECTION (VENTA Y ARRIENDO) -->
+    <section id="elementos" class="py-24 relative bg-arabic-dark border-t border-arabic-accent/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-arabic-accent text-xs font-bold uppercase tracking-widest"><i class="fas fa-fan mr-1"></i> Accesorios & Elementos</span>
+                <h2 class="text-3xl sm:text-5xl font-cinzel font-bold text-white mt-2">Venta & Arriendo de Elementos</h2>
+                <p class="text-slate-300 text-xs sm:text-sm mt-3">
+                    Abanicos de seda, alas de Isis, velos, sables y derbakes. Con opción de envío a todo Chile o retiro presencial.
+                </p>
+            </div>
+
+            <!-- Elementos Grid Sample -->
+            <div class="grid md:grid-cols-4 gap-6 mb-16">
+                <div class="glass-panel p-5 rounded-2xl border border-white/10 text-center">
+                    <div class="w-16 h-16 rounded-full bg-arabic-accent/10 border border-arabic-accent/30 flex items-center justify-center text-arabic-accent mx-auto mb-3 text-2xl">
+                        <i class="fas fa-fan"></i>
+                    </div>
+                    <h4 class="font-cinzel text-sm font-bold text-white mb-1">Abanicos de Seda (Fan Veils)</h4>
+                    <p class="text-[11px] text-slate-400 mb-3">Seda natural gradada de alta fluidez. Varios colores.</p>
+                    <button onclick="scrollToElementForm('Abanicos de Seda')" class="w-full py-2 rounded-lg bg-white/10 text-white text-xs font-semibold hover:bg-arabic-accent hover:text-black transition-all">
+                        Consultar
+                    </button>
+                </div>
+
+                <div class="glass-panel p-5 rounded-2xl border border-white/10 text-center">
+                    <div class="w-16 h-16 rounded-full bg-arabic-accent/10 border border-arabic-accent/30 flex items-center justify-center text-arabic-accent mx-auto mb-3 text-2xl">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <h4 class="font-cinzel text-sm font-bold text-white mb-1">Alas de Isis Plisadas</h4>
+                    <p class="text-[11px] text-slate-400 mb-3">Doradas, plateadas y multicolores con varillas desplegables.</p>
+                    <button onclick="scrollToElementForm('Alas de Isis Plisadas')" class="w-full py-2 rounded-lg bg-white/10 text-white text-xs font-semibold hover:bg-arabic-accent hover:text-black transition-all">
+                        Consultar
+                    </button>
+                </div>
+
+                <div class="glass-panel p-5 rounded-2xl border border-white/10 text-center">
+                    <div class="w-16 h-16 rounded-full bg-arabic-accent/10 border border-arabic-accent/30 flex items-center justify-center text-arabic-accent mx-auto mb-3 text-2xl">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h4 class="font-cinzel text-sm font-bold text-white mb-1">Velos de Seda & Gasa</h4>
+                    <p class="text-[11px] text-slate-400 mb-3">Livianos, rectangulares o semicirculares para escenario.</p>
+                    <button onclick="scrollToElementForm('Velos de Seda & Gasa')" class="w-full py-2 rounded-lg bg-white/10 text-white text-xs font-semibold hover:bg-arabic-accent hover:text-black transition-all">
+                        Consultar
+                    </button>
+                </div>
+
+                <div class="glass-panel p-5 rounded-2xl border border-white/10 text-center">
+                    <div class="w-16 h-16 rounded-full bg-arabic-accent/10 border border-arabic-accent/30 flex items-center justify-center text-arabic-accent mx-auto mb-3 text-2xl">
+                        <i class="fas fa-drum"></i>
+                    </div>
+                    <h4 class="font-cinzel text-sm font-bold text-white mb-1">Candelabros & Sables</h4>
+                    <p class="text-[11px] text-slate-400 mb-3">Elementos de equilibrio profesionales para shows de gala.</p>
+                    <button onclick="scrollToElementForm('Candelabros & Sables')" class="w-full py-2 rounded-lg bg-white/10 text-white text-xs font-semibold hover:bg-arabic-accent hover:text-black transition-all">
+                        Consultar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Ficha de Solicitud de Elementos -->
+            <div id="element-form-container" class="glass-panel p-8 sm:p-10 rounded-3xl border border-arabic-accent/30 max-w-3xl mx-auto">
+                <div class="text-center mb-6">
+                    <h3 class="font-cinzel text-2xl font-bold text-white">Ficha de Arriendo / Venta de Elementos</h3>
+                    <p class="text-xs text-slate-400 mt-1">Completa tus datos para coordinar el retiro presencial o despacho a regiones con garantía de devolución.</p>
+                </div>
+
+                <form id="element-form" onsubmit="handleElementForm(event)" class="space-y-5">
+                    <div class="grid md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Nombre Completo *</label>
+                            <input type="text" id="elem-name" required placeholder="Ej: Andrea Gómez" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">RUT *</label>
+                            <input type="text" id="elem-rut" required placeholder="12.345.678-K" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Dirección Completa *</label>
+                            <input type="text" id="elem-address" required placeholder="Calle Ejemplo #456" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Ciudad *</label>
+                            <input type="text" id="elem-city" required placeholder="Ej: Curicó / Santiago" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-5">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Teléfono *</label>
+                            <input type="tel" id="elem-phone" required placeholder="+56 9 1234 5678" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Modalidad *</label>
+                            <select id="elem-mode" required class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                                <option value="Arriendo (Requiere Garantía)">Arriendo (Requiere Garantía)</option>
+                                <option value="Venta Definitiva">Venta Definitiva</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Entrega *</label>
+                            <select id="elem-delivery" required class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                                <option value="Envío a Domicilio / Starken / Chilexpress">Envío a Domicilio</option>
+                                <option value="Retiro Presencial en Sede">Retiro Presencial</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-2">Elemento(s) Deseado(s) *</label>
+                        <input type="text" id="elem-item" required placeholder="Ej: Par de Abanicos de Seda Azul / Alas de Isis Doradas" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-[11px] text-amber-200">
+                        <i class="fas fa-shield-alt mr-1 text-arabic-accent"></i> 
+                        <strong>Garantía de Arriendo:</strong> Todo arriendo de elemento exige una garantía previa que será reembolsada íntegramente al momento del retorno del accesorio en excelente estado.
+                    </div>
+
+                    <div class="text-center pt-2">
+                        <button type="submit" class="w-full sm:w-auto px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-widest bg-arabic-accent text-black hover:bg-amber-400 transition-all">
+                            <i class="fab fa-whatsapp text-sm mr-2"></i> Solicitar Elemento por WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESERVAS Y PAGOS SECTION -->
+    <section id="reservas" class="py-24 relative bg-arabic-dark border-y border-arabic-accent/20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-arabic-accent text-xs font-bold uppercase tracking-widest"><i class="fas fa-calendar-check mr-1"></i> Sistema de Agendamiento</span>
+                <h2 class="text-3xl sm:text-4xl font-cinzel font-bold text-white mt-2">Reserva tu Clase Suelta o Mensualidad</h2>
+                <p class="text-slate-300 text-xs sm:text-sm mt-2">
+                    Inscríbete, selecciona tu modalidad y agenda tu fecha. Puedes transferir directamente a nuestra Cuenta RUT.
+                </p>
+            </div>
+
+            <div class="glass-panel p-6 sm:p-10 rounded-3xl border border-arabic-accent/30 space-y-6">
+                <form id="class-booking-form" onsubmit="handleClassBooking(event)" class="space-y-6">
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Nombre Completo *</label>
+                            <input type="text" id="book-name" required placeholder="Ej: María José Pérez" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Teléfono WhatsApp *</label>
+                            <input type="tel" id="book-phone" required placeholder="+56 9 1234 5678" class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Modalidad de Clase *</label>
+                            <select id="book-type" required class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                                <option value="Clase Suelta / Prueba">Clase Suelta / Prueba</option>
+                                <option value="Mensualidad Regular (4-8 clases)">Mensualidad Regular</option>
+                                <option value="Clase Particular Individual">Clase Particular Individual</option>
+                                <option value="Pack Novia / Coreografía Personalizada">Pack Novia / Coreografía Especial</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Horario y Sede Deseada *</label>
+                            <select id="book-schedule" required class="w-full bg-black/60 border border-white/20 rounded-xl p-3 text-xs text-white focus:border-arabic-accent outline-none">
+                                <option value="Lunes Básico (18:40 hrs) - Carmen 560">Lunes Básico (18:40 hrs) - Carmen 560</option>
+                                <option value="Miércoles Básico (18:40 hrs) - Carmen 560">Miércoles Básico (18:40 hrs) - Carmen 560</option>
+                                <option value="Jueves Iniciación (19:00 hrs) - Manso de Velasco">Jueves Iniciación (19:00 hrs) - Manso de Velasco</option>
+                                <option value="Lunes Mañana Iniciación (11:00 hrs) - Rucatremu">Lunes Mañana Iniciación (11:00 hrs) - Rucatremu</option>
+                                <option value="Martes Mañana Iniciación (11:00 hrs) - Manso de Velasco">Martes Mañana Iniciación (11:00 hrs) - Manso de Velasco</option>
+                                <option value="Sábado Infantil/Juvenil (11:00 hrs) - Carmen 560">Sábado Infantil/Juvenil (11:00 hrs) - Carmen 560</option>
+                                <option value="Sábado Iniciación (15:20 hrs) - Carmen 560">Sábado Iniciación (15:20 a 17:40 hrs) - Carmen 560</option>
+                                <option value="Sábado Avanzado (13:20 hrs) - Carmen 560">Sábado Avanzado (13:20 a 15:00 hrs) - Carmen 560</option>
+                                <option value="Horario Particular A Convenir">Horario Particular A Convenir</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Payment Banner inside form -->
+                    <div class="p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-arabic-card to-amber-500/10 border border-arabic-accent/40 flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div class="text-xs">
+                            <span class="text-arabic-accent font-bold block"><i class="fas fa-credit-card mr-1"></i> Datos Bancarios Directos:</span>
+                            <span class="text-slate-300">Banco Estado - <strong>Cuenta RUT 14.327.139-0</strong></span>
+                        </div>
+                        <button type="button" onclick="openPaymentModal('Agendamiento Directo')" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold text-white border border-white/20 transition-all shrink-0">
+                            Ver Detalles de Cuenta
+                        </button>
+                    </div>
+
+                    <div class="text-center pt-2">
+                        <button type="submit" class="w-full sm:w-auto px-10 py-4 rounded-full font-bold text-xs uppercase tracking-widest bg-gradient-to-r from-arabic-accent via-amber-400 to-amber-600 text-black hover:scale-105 transition-all shadow-lg shadow-arabic-accent/25">
+                            <i class="fab fa-whatsapp text-sm mr-2"></i> Agendar y Enviar Datos por WhatsApp
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DATOS BANCARIOS -->
+    <div id="payment-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-arabic-card border border-arabic-accent/50 rounded-3xl p-6 sm:p-8 max-w-lg w-full relative shadow-2xl">
+            <button onclick="closePaymentModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 rounded-full bg-arabic-accent/20 border border-arabic-accent flex items-center justify-center text-arabic-accent mx-auto mb-3">
+                    <i class="fas fa-university text-xl"></i>
+                </div>
+                <h3 class="font-cinzel text-xl font-bold text-white">Datos de Transferencia Bancaria</h3>
+                <p class="text-xs text-slate-400 mt-1">Transfiere el monto correspondiente y envía tu comprobante a nuestro WhatsApp para confirmar tu cupo.</p>
+            </div>
+
+            <!-- Account Details Card -->
+            <div class="space-y-3 bg-black/60 p-4 rounded-2xl border border-white/10 text-xs text-slate-200">
+                <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                    <span class="text-slate-400">Banco:</span>
+                    <strong class="text-white font-semibold">Banco Estado / Cuenta RUT</strong>
+                </div>
+                <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                    <span class="text-slate-400">Tipo de Cuenta:</span>
+                    <strong class="text-white font-semibold">Cuenta RUT / Vista</strong>
+                </div>
+                <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                    <span class="text-slate-400">N° de Cuenta RUT:</span>
+                    <div class="flex items-center space-x-2">
+                        <strong id="rut-number" class="text-arabic-accent font-bold">14327139-0</strong>
+                        <button onclick="copyRut()" class="text-[10px] px-2 py-0.5 rounded bg-arabic-accent/20 text-arabic-accent border border-arabic-accent hover:bg-arabic-accent hover:text-black transition-all">Copiar</button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                    <span class="text-slate-400">RUT Titular:</span>
+                    <strong class="text-white font-semibold">14.327.139-0</strong>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-slate-400">WhatsApp Confirmaciones:</span>
+                    <strong class="text-arabic-accent">+56 9 8494 4087</strong>
+                </div>
+            </div>
+
+            <div class="mt-6 space-y-3">
+                <a href="https://wa.me/56984944087?text=Hola%20Madalis,%20aqu%C3%AD%20adjunto%20mi%20comprobante%20de%20transferencia%20para%20confirmar%20mi%20cupo." 
+                   target="_blank"
+                   class="w-full text-center block py-3 rounded-full bg-arabic-accent text-black font-bold text-xs uppercase tracking-wider hover:bg-amber-400 transition-all">
+                    <i class="fab fa-whatsapp mr-1 text-sm"></i> Enviar Comprobante por WhatsApp
+                </a>
+                <button onclick="closePaymentModal()" class="w-full text-center block py-2 text-xs text-slate-400 hover:text-white">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="contacto" class="bg-black text-slate-400 py-16 border-t border-white/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                
+                <div class="space-y-4 md:col-span-1">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-full border border-slate-400/30 flex items-center justify-center p-0.5 bg-black overflow-hidden shrink-0">
+                            <svg viewBox="0 0 500 550" class="w-full h-full">
+                                <use href="#textArcNav" />
+                                <rect width="500" height="550" fill="#000000" />
+                                <path d="M 270,140 C 130,140 80,240 80,340 C 80,440 160,510 300,510 C 190,490 145,410 145,335 C 145,240 205,160 270,140 Z" fill="#cbd5e1" />
+                                <g transform="translate(260, 335)">
+                                    <circle cx="0" cy="0" r="30" fill="#cbd5e1" />
+                                    <circle cx="0" cy="0" r="22" fill="#ffffff" />
+                                </g>
+                            </svg>
+                        </div>
+                        <span class="font-script text-2xl font-bold text-white">Madalis</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Academia especializada en Danzas Árabes. Formación técnica, humana y profesional para todas las edades.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-cinzel text-sm font-bold text-white uppercase tracking-wider mb-4">Nuestras Sedes</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><i class="fas fa-map-pin text-arabic-accent mr-2"></i> Corporación Cultural Carmen #560</li>
+                        <li><i class="fas fa-map-pin text-arabic-accent mr-2"></i> Manso de Velasco #744</li>
+                        <li><i class="fas fa-map-pin text-arabic-accent mr-2"></i> Rucatremu s/n</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-cinzel text-sm font-bold text-white uppercase tracking-wider mb-4">Navegación</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#horarios" class="hover:text-arabic-accent transition-colors">Horarios de Clases</a></li>
+                        <li><a href="#reservas" class="hover:text-arabic-accent transition-colors">Reserva & Pagos</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-cinzel text-sm font-bold text-white uppercase tracking-wider mb-4">Contacto Directo</h4>
+                    <p class="text-xs text-slate-400 mb-2">WhatsApp:</p>
+                    <p class="text-sm font-bold text-arabic-accent mb-3">+56 9 8494 4087</p>
+                    <a href="https://wa.me/56984944087" target="_blank" class="inline-block px-5 py-2.5 rounded-full bg-arabic-accent text-black font-bold text-xs uppercase tracking-wider hover:bg-amber-400 transition-all">
+                        <i class="fab fa-whatsapp mr-1"></i> WhatsApp Directo
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/5 pt-8 text-center text-xs text-slate-500">
+                <p>&copy; 2026 Madalis Academia de Danzas Árabes. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const WHATSAPP_NUMBER = "56984944087";
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        function selectClassForBooking(scheduleName) {
+            const scheduleSelect = document.getElementById('book-schedule');
+            if (scheduleSelect) {
+                scheduleSelect.value = scheduleName;
+            }
+            const bookingSection = document.getElementById('reservas');
+            if (bookingSection) {
+                bookingSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Handle Particular Class Form
+        function handleParticularForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('part-name').value;
+            const phone = document.getElementById('part-phone').value;
+            const motive = document.getElementById('part-motive').value;
+            const eventOcc = document.getElementById('part-event').value;
+            const people = document.getElementById('part-people').value;
+            const choreo = document.getElementById('part-choreo').value;
+            const date = document.getElementById('part-date').value;
+            const props = document.getElementById('part-props').value;
+            const outfit = document.getElementById('part-outfit').value;
+            const budget = document.getElementById('part-budget').value;
+
+            const msg = `Hola Madalis! Quisiera solicitar una Clase Especial / Particular:
+- Nombre: ${name}
+- Teléfono: ${phone}
+- Motivo: ${motive}
+- Evento/Ocasión: ${eventOcc}
+- Personas: ${people}
+- Coreografía: ${choreo}
+- Fecha Estimada: ${date}
+- Elementos: ${props}
+- Traje: ${outfit}
+- Presupuesto: ${budget}`;
+
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        // Handle Show Booking Form
+        function handleShowBooking(e) {
+            e.preventDefault();
+            const name = document.getElementById('show-name').value;
+            const phone = document.getElementById('show-phone').value;
+            const email = document.getElementById('show-email').value;
+            const eventType = document.getElementById('show-event-type').value;
+            const location = document.getElementById('show-location').value;
+            const space = document.getElementById('show-space').value;
+            const date = document.getElementById('show-date').value;
+            const dancers = document.getElementById('show-dancers').value;
+            const budget = document.getElementById('show-budget').value;
+            const expectations = document.getElementById('show-expectations').value;
+
+            const msg = `Hola Madalis! Quisiera cotizar un Espectáculo / Show Oriental:
+- Cliente: ${name}
+- Teléfono: ${phone}
+- Correo: ${email}
+- Tipo de Evento: ${eventType}
+- Lugar/Ciudad: ${location}
+- Tipo de Espacio: ${space}
+- Fecha del Evento: ${date}
+- N° de Bailarinas: ${dancers}
+- Presupuesto: ${budget}
+- Expectativas/Detalles: ${expectations}`;
+
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function scrollToOutfitForm(item) {
+            const input = document.getElementById('out-item');
+            if (input) input.value = item;
+            document.getElementById('outfit-form-container').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Handle Outfit Form
+        function handleOutfitForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('out-name').value;
+            const rut = document.getElementById('out-rut').value;
+            const address = document.getElementById('out-address').value;
+            const city = document.getElementById('out-city').value;
+            const phone = document.getElementById('out-phone').value;
+            const mode = document.getElementById('out-mode').value;
+            const item = document.getElementById('out-item').value;
+
+            const msg = `Hola Madalis! Solicito información sobre Arriendo/Venta de Traje:
+- Nombre: ${name}
+- RUT: ${rut}
+- Dirección: ${address}
+- Ciudad: ${city}
+- Teléfono: ${phone}
+- Modalidad: ${mode}
+- Traje/Interés: ${item}`;
+
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function scrollToElementForm(item) {
+            const input = document.getElementById('elem-item');
+            if (input) input.value = item;
+            document.getElementById('element-form-container').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Handle Element Form
+        function handleElementForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('elem-name').value;
+            const rut = document.getElementById('elem-rut').value;
+            const address = document.getElementById('elem-address').value;
+            const city = document.getElementById('elem-city').value;
+            const phone = document.getElementById('elem-phone').value;
+            const mode = document.getElementById('elem-mode').value;
+            const delivery = document.getElementById('elem-delivery').value;
+            const item = document.getElementById('elem-item').value;
+
+            const msg = `Hola Madalis! Solicito información sobre Arriendo/Venta de Elemento:
+- Nombre: ${name}
+- RUT: ${rut}
+- Dirección: ${address}
+- Ciudad: ${city}
+- Teléfono: ${phone}
+- Modalidad: ${mode}
+- Tipo de Entrega: ${delivery}
+- Elemento: ${item}`;
+
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function handleClassBooking(e) {
+            e.preventDefault();
+            const name = document.getElementById('book-name').value;
+            const phone = document.getElementById('book-phone').value;
+            const type = document.getElementById('book-type').value;
+            const schedule = document.getElementById('book-schedule').value;
+
+            const msg = `Hola Madalis! Quisiera agendar mi clase/inscripción:
+- Nombre: ${name}
+- Teléfono: ${phone}
+- Modalidad: ${type}
+- Horario / Sede: ${schedule}`;
+
+            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
+
+        function openPaymentModal(origin) {
+            document.getElementById('payment-modal').classList.remove('hidden');
+        }
+
+        function closePaymentModal() {
+            document.getElementById('payment-modal').classList.add('hidden');
+        }
+
+        function copyRut() {
+            const rutText = "14327139-0";
+            const input = document.createElement('input');
+            input.value = rutText;
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+            alert("¡RUT copiado al portapapeles: 14327139-0!");
+        }
+    </script>
+</body>
+</html>
